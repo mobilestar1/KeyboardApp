@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>001</key>
+	<string>emotions_01</string>
+	<key>002</key>
+	<string>emotions_02</string>
+	<key>003</key>
+	<string>emotions_03</string>
+	<key>004</key>
+	<string>emotions_04</string>
+	<key>005</key>
+	<string>emotions_05</string>
+	<key>006</key>
+	<string>emotions_06</string>
+	<key>007</key>
+	<string>image_04</string>
+	<key>008</key>
+	<string>image_05</string>
+	<key>009</key>
+	<string>image_19</string>
+	<key>010</key>
+	<string>shirt_01</string>
+	<key>011</key>
+	<string>shirt_02</string>
+	<key>012</key>
+	<string>shirt_06</string>
+	<key>013</key>
+	<string>shirt_10</string>
+	<key>014</key>
+	<string>shirt_11</string>
+	<key>015</key>
+	<string>shirt_12</string>
+</dict>
+</plist>
