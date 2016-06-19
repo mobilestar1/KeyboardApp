@@ -25,7 +25,6 @@
 @end
 
 NSArray * rampageGif;
-NSArray * rampageGif2;
 
 @implementation GifViewController
 #define CATEGORY_COUNT  4
@@ -64,7 +63,6 @@ NSArray * rampageGif2;
    
     rampageGif = [NSArray arrayWithObjects:@"giphy1",@"giphy2",@"giphy3",@"giphy4",@"giphy5",@"giphy6",@"giphy7",@"giphy8",@"giphy9",@"giphy10",nil];
     
-     rampageGif2 = [NSArray arrayWithObjects:@"giphy11",@"giphy12",@"giphy13",@"giphy14",@"giphy15",@"giphy16",@"giphy17",@"giphy18",@"giphy19",@"giphy20",@"giphy21",@"giphy22",@"giphy23",@"giphy24",@"giphy25",@"giphy26",@"giphy27",@"giphy28",@"giphy29",@"giphy30",@"giphy31",nil];
     
     //    UITabBarController *tabBarController = (UITabBarController *)self.parentViewController;
 //    UITabBar *tabBar = tabBarController.tabBar;
@@ -120,6 +118,7 @@ NSArray * rampageGif2;
             
             if([userdefalts boolForKey:@"CATEGORY1"])
             {
+                NSLog(@"purchased");
                 [[_purchaseBtn layer] setBorderWidth:1.0f];
                 [[_purchaseBtn layer] setBorderColor:[UIColor blackColor].CGColor];
                 [[_purchaseBtn layer] setCornerRadius:5.0f];
@@ -129,7 +128,7 @@ NSArray * rampageGif2;
                 
             }
             else {
-                
+                NSLog(@"Not purchased1");
                 [[_purchaseBtn layer] setBorderWidth:1.0f];
                 [[_purchaseBtn layer] setBorderColor:[UIColor blackColor].CGColor];
                 [[_purchaseBtn layer] setCornerRadius:5.0f];
@@ -140,7 +139,7 @@ NSArray * rampageGif2;
             
             
             self.lblTitle.text = @"Rampagemoji Full Version";
-            self.gifCountLbl.text = [NSString stringWithFormat:@"%lu GIFs",(unsigned long)rampageGif2.count];
+            self.gifCountLbl.text = [NSString stringWithFormat:@"%lu GIFs",(unsigned long)rampageGif.count];
              // To set the title
     
             
@@ -168,7 +167,7 @@ NSArray * rampageGif2;
     
     else
         
-        return rampageGif2.count;
+        return rampageGif.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -215,7 +214,7 @@ NSArray * rampageGif2;
         
     }
     else{
-        [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif2 objectAtIndex:indexPath.row]]]];
+        [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]]];
         [cell.layer setCornerRadius:0];
         [cell.layer setCornerRadius:0];
         
@@ -230,7 +229,7 @@ NSArray * rampageGif2;
         //[self.view addSubview:self.imageView1];
         self.imageView1.frame = CGRectMake(0,0, cell.frame.size.width, cell.frame.size.height);
         
-        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[rampageGif2 objectAtIndex:indexPath.row] withExtension:@"gif"];
+        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[rampageGif objectAtIndex:indexPath.row] withExtension:@"gif"];
         NSData *data1 = [NSData dataWithContentsOfURL:url1];
         FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
         self.imageView1.animatedImage = animatedImage1;

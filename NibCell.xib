@@ -13,18 +13,10 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="280" height="257"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-o0-YbG" customClass="FLAnimatedImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="257"/>
-                    </imageView>
-                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <size key="customSize" width="265" height="257"/>
-            <connections>
-                <outlet property="imageView" destination="nJc-o0-YbG" id="2i5-7J-RNT"/>
-            </connections>
             <point key="canvasLocation" x="112" y="406.5"/>
         </collectionViewCell>
     </objects>

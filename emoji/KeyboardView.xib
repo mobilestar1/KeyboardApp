@@ -85,7 +85,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziJ-1L-XCW">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziJ-1L-XCW">
                             <rect key="frame" x="267" y="0.0" width="51" height="53"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="gF9-U7-ddG"/>
@@ -100,6 +100,9 @@
                                 </mask>
                             </variation>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-hc-Yx0">
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -153,6 +156,9 @@
                         <constraint firstItem="gXg-zm-N9c" firstAttribute="baseline" secondItem="lPl-R9-Txi" secondAttribute="baseline" id="zY4-ga-udk"/>
                     </constraints>
                     <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="I6a-hc-Yx0"/>
+                        </mask>
                         <mask key="constraints">
                             <exclude reference="92D-Zk-TZ2"/>
                             <exclude reference="Ah2-rh-mYe"/>

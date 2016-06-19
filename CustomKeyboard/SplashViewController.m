@@ -9,7 +9,7 @@
 #import "SplashViewController.h"
 #import "StoreViewController.h"
 #import "FirstViewController.h"
-
+#import "MKStoreManager.h"
 @interface SplashViewController ()
 {
     NSUserDefaults *userdefalts;
@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    userdefalts = [[NSUserDefaults alloc] initWithSuiteName:@"group.keygoard"];
     
+}
+
+- (void) viewDidAppear:(BOOL)animated {
     if([userdefalts boolForKey:@"CATEGORY1"])
     {
         UIButton *fullVersinoBtn = self.fullVersionBtn;
@@ -28,8 +32,10 @@
         [fullVersinoBtn setTitle:@"FULL VERSION" forState:UIControlStateNormal];
         
     }
+    else{
+        NSLog(@"Not Purchased");
+    }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

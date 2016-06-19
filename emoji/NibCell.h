@@ -12,6 +12,5 @@
 #import "UIImage+GIF.h"
 
 @interface NibCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet FLAnimatedImageView *imageView;
 
 @end
