@@ -2137,8 +2137,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = emoji/emoji.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Kim (JMV2N37G56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Kim (JMV2N37G56)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Kim (P6L9577T76)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Kim (P6L9577T76)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2147,7 +2147,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepfriedproductions.rampagemoji.emoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7b5fff16-9ffb-4795-af2f-8de817875767";
+				PROVISIONING_PROFILE = "4bf2231a-9fce-4ead-89f2-a45eb83c17bb";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -2156,13 +2156,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = emoji/emoji.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Kim (JMV2N37G56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Kim (JMV2N37G56)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Kim (P6L9577T76)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Kim (P6L9577T76)";
 				INFOPLIST_FILE = emoji/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepfriedproductions.rampagemoji.emoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7b5fff16-9ffb-4795-af2f-8de817875767";
+				PROVISIONING_PROFILE = "4bf2231a-9fce-4ead-89f2-a45eb83c17bb";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -2255,14 +2255,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = CustomKeyboard/CustomKeyboard.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Kim (JMV2N37G56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Kim (JMV2N37G56)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Kim (P6L9577T76)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Kim (P6L9577T76)";
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepfriedproductions.rampagemoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8bdd043b-41be-404f-9404-3d5d5c8d51c2";
+				PROVISIONING_PROFILE = "3b2ca01c-c815-482b-b1cc-1efa524c056e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2273,14 +2273,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = CustomKeyboard/CustomKeyboard.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Kim (JMV2N37G56)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Kim (JMV2N37G56)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Kim (P6L9577T76)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Kim (P6L9577T76)";
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepfriedproductions.rampagemoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8bdd043b-41be-404f-9404-3d5d5c8d51c2";
+				PROVISIONING_PROFILE = "3b2ca01c-c815-482b-b1cc-1efa524c056e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

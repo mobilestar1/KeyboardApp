@@ -85,62 +85,76 @@ CGFloat bottomHeight;
     
     UIImageView * rampageGifImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, cell.frame.size.width, cell.frame.size.height)];
     
-    if ([sharedDefaults boolForKey:@"CATEGORY1"]) {
-//        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
-//        cell.imageView.clipsToBounds = YES;
+    [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]]];
+    [cell addSubview:rampageGifImage];
+//    if ([sharedDefaults boolForKey:@"CATEGORY1"]) {
+//        //        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+//        //        cell.imageView.clipsToBounds = YES;
+//        //
+//        //        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[allRampageGifs objectAtIndex:indexPath.row] withExtension:@"gif"];
+//        //        NSData *data1 = [NSData dataWithContentsOfURL:url1];
+//        //        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
+//        //        cell.imageView.animatedImage = animatedImage1;
 //        
-//        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[allRampageGifs objectAtIndex:indexPath.row] withExtension:@"gif"];
-//        NSData *data1 = [NSData dataWithContentsOfURL:url1];
-//        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
-//        cell.imageView.animatedImage = animatedImage1;
-        
-        [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]]];
-        @try {
-            FLAnimatedImage __block *gifImage = nil;
-            FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:cell.bounds];
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    animateImage1.animatedImage = gifImage;
-                    [cell addSubview:animateImage1];
-                    //gifImage = nil;
-                });
-            });
-        }
-        @catch (NSException *exception) {
-            NSLog(@"Exception :%@",exception.debugDescription);
-        }
-    }
-    else{
-        
-        [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]]];
-        @try {
-            FLAnimatedImage __block *gifImage = nil;
-            FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:cell.bounds];
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    animateImage1.animatedImage = gifImage;
-                    [cell addSubview:animateImage1];
-                    //gifImage = nil;
-                });
-            });
-        }
-        @catch (NSException *exception) {
-            NSLog(@"Exception :%@",exception.debugDescription);
-        }
-    }
-    
+////            @try {
+////                FLAnimatedImage __block *gifImage = nil;
+////                FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:cell.bounds];
+////                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+////                    gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
+////                    
+////                    dispatch_async(dispatch_get_main_queue(), ^{
+////                        
+////                        animateImage1.animatedImage = gifImage;
+////                        [cell addSubview:animateImage1];
+////                        //gifImage = nil;
+////                    });
+////                });
+////            }
+////            @catch (NSException *exception) {
+////                NSLog(@"Exception :%@",exception.debugDescription);
+////            }
+//        [cell addSubview:rampageGifImage];
+//    }
+//    else{
+//        
+//        [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]]];
+//        @try {
+//            FLAnimatedImage __block *gifImage = nil;
+//            FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:cell.bounds];
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
+//                
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    
+//                    animateImage1.animatedImage = gifImage;
+//                    [cell addSubview:animateImage1];
+//                    //gifImage = nil;
+//                });
+//            });
+//        }
+//        @catch (NSException *exception) {
+//            NSLog(@"Exception :%@",exception.debugDescription);
+//        }
+//    }
+
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
     
     NibCell *Cell = (NibCell*) [collectionView cellForItemAtIndexPath:indexPath];
+        FLAnimatedImage __block *gifImage = nil;
+        FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:Cell.bounds];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                animateImage1.animatedImage = gifImage;
+                [Cell addSubview:animateImage1];
+                //gifImage = nil;
+            });
+        });
 //    if ([sharedDefaults boolForKey:@"CATEGORY1"]) {
 //        Cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        Cell.imageView.clipsToBounds = YES;
