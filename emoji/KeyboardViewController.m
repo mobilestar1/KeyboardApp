@@ -169,18 +169,18 @@ CGFloat bottomHeight;
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
     
     NibCell *Cell = (NibCell*) [collectionView cellForItemAtIndexPath:indexPath];
-        FLAnimatedImage __block *gifImage = nil;
-        FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:Cell.bounds];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-
-                animateImage1.animatedImage = gifImage;
-                [Cell addSubview:animateImage1];
-                //gifImage = nil;
-            });
-        });
+//        FLAnimatedImage __block *gifImage = nil;
+//        FLAnimatedImageView *animateImage1 = [[FLAnimatedImageView alloc] initWithFrame:Cell.bounds];
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            gifImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [rampageGif objectAtIndex:indexPath.row]] ofType:@"gif"]]];
+//
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                animateImage1.animatedImage = gifImage;
+//                [Cell addSubview:animateImage1];
+//                //gifImage = nil;
+//            });
+//        });
 //    if ([sharedDefaults boolForKey:@"CATEGORY1"]) {
 //        Cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        Cell.imageView.clipsToBounds = YES;
