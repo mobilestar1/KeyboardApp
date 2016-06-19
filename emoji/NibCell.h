@@ -10,7 +10,7 @@
 #import "FLAnimatedImage.h"
 #import "FLAnimatedImageView.h"
 #import "UIImage+GIF.h"
-
+bool cell_flag;
 @interface NibCell : UICollectionViewCell
 
 @end
