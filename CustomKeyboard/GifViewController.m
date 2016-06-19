@@ -61,7 +61,7 @@ NSArray * rampageGif;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudhide:) name:IAPNOTIFICATION object:nil];
    
-    rampageGif = [NSArray arrayWithObjects:@"giphy1",@"giphy2",@"giphy3",@"giphy4",@"giphy5",@"giphy6",@"giphy7",@"giphy8",@"giphy9",@"giphy10",nil];
+    rampageGif = [NSArray arrayWithObjects:@"giphy1",@"giphy2",@"giphy3",@"giphy4",@"giphy5",@"giphy6",@"giphy7",@"giphy8",@"giphy9",nil];
     
     
     //    UITabBarController *tabBarController = (UITabBarController *)self.parentViewController;
