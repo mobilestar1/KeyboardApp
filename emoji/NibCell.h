@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLAnimatedImage.h"
+#import "FLAnimatedImageView.h"
+#import "UIImage+GIF.h"
 
 @interface NibCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *imageView;
 
 @end

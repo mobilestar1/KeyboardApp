@@ -22,6 +22,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="opK-3S-eq9"/>
+                        <outlet property="delegate" destination="-1" id="hPI-N3-AzW"/>
+                    </connections>
                 </collectionView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sg-0z-rK8" userLabel="emojiview">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="168"/>
@@ -33,7 +37,7 @@
                     <rect key="frame" x="0.0" y="168" width="320" height="53"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-R9-Txi">
-                            <rect key="frame" x="0.0" y="1" width="54" height="53"/>
+                            <rect key="frame" x="0.0" y="0.0" width="54" height="53"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="53" id="2xX-m0-PCV"/>
                                 <constraint firstAttribute="height" constant="40" id="VMc-bV-ho1"/>
@@ -50,14 +54,14 @@
                             </variation>
                         </button>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24s-dU-CwK" userLabel="categoryview">
-                            <rect key="frame" x="53" y="1" width="112" height="53"/>
+                            <rect key="frame" x="53" y="0.0" width="112" height="53"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="53" id="yrM-6v-YKD"/>
                             </constraints>
                         </scrollView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXg-zm-N9c">
-                            <rect key="frame" x="165" y="1" width="51" height="53"/>
+                            <rect key="frame" x="165" y="0.0" width="51" height="53"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="42" id="22r-u5-XJH"/>
                                 <constraint firstAttribute="height" constant="53" id="YmD-45-IDN"/>
@@ -73,7 +77,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qik-pC-8tE">
-                            <rect key="frame" x="216" y="1" width="51" height="53"/>
+                            <rect key="frame" x="216" y="0.0" width="51" height="53"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="53" id="Pv0-nu-3b7"/>
                             </constraints>
@@ -82,7 +86,7 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziJ-1L-XCW">
-                            <rect key="frame" x="267" y="1" width="51" height="53"/>
+                            <rect key="frame" x="267" y="0.0" width="51" height="53"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="gF9-U7-ddG"/>
                                 <constraint firstAttribute="height" constant="53" id="nq8-Az-voC"/>
@@ -145,7 +149,7 @@
                         <constraint firstItem="ziJ-1L-XCW" firstAttribute="baseline" secondItem="lPl-R9-Txi" secondAttribute="baseline" id="uuH-tt-lUK"/>
                         <constraint firstItem="Qik-pC-8tE" firstAttribute="leading" secondItem="gXg-zm-N9c" secondAttribute="trailing" id="xTZ-3L-B9a"/>
                         <constraint firstItem="ziJ-1L-XCW" firstAttribute="firstBaseline" secondItem="lPl-R9-Txi" secondAttribute="firstBaseline" id="yJP-1e-zSm"/>
-                        <constraint firstItem="ziJ-1L-XCW" firstAttribute="top" secondItem="bYO-rw-upD" secondAttribute="top" constant="1" id="yvr-0Z-Zxj"/>
+                        <constraint firstItem="ziJ-1L-XCW" firstAttribute="top" secondItem="bYO-rw-upD" secondAttribute="top" id="yvr-0Z-Zxj"/>
                         <constraint firstItem="gXg-zm-N9c" firstAttribute="baseline" secondItem="lPl-R9-Txi" secondAttribute="baseline" id="zY4-ga-udk"/>
                     </constraints>
                     <variation key="default">

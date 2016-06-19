@@ -33,14 +33,14 @@
 
 NSArray * rampageGif;
 NSArray * rampageGif2;
-
+NSMutableArray * gifArray;
 NSArray * allRampageGifs;
 CGFloat bottomWidth;
 CGFloat bottomHeight;
 @implementation KeyboardViewController
 
 #define FACE_COUNT_ROW  2
-#define FACE_COUNT_CLU  3
+#define FACE_COUNT_CLU  4
 #define FACE_COUNT_PAGE ( FACE_COUNT_ROW * FACE_COUNT_CLU )
 #define FACE_ICON_SIZE  60
 
@@ -59,133 +59,75 @@ CGFloat bottomHeight;
     rampageGif2 = [NSArray arrayWithObjects:@"giphy11",@"giphy12",@"giphy13",@"giphy14",@"giphy15",@"giphy16",@"giphy17",@"giphy18",@"giphy19",@"giphy20",@"giphy21",@"giphy22",@"giphy23",@"giphy24",@"giphy25",@"giphy26",@"giphy27",@"giphy28",@"giphy29",@"giphy30",@"giphy31",nil];
     
     allRampageGifs =[rampageGif arrayByAddingObjectsFromArray:rampageGif];
-    _keyboard.collectionView.dataSource = self;
-    _keyboard.collectionView.delegate = self;
-    
+//    gifArray = [[NSMutableArray alloc] init];
+//    for (int i = 0;i < rampageGif.count;i ++) {
+//        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[rampageGif objectAtIndex:i] withExtension:@"gif"];
+//        NSData *data1 = [NSData dataWithContentsOfURL:url1];
+//        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
+//        [gifArray addObject:animatedImage1];
+//    }
     [_keyboard.collectionView reloadData];
     
     sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.keygoard"];
-    
 }
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return  1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView
-     numberOfItemsInSection:(NSInteger)section
-{
-    
-    if([sharedDefaults boolForKey:@"CATEGORY1"])
-    {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if([sharedDefaults boolForKey:@"CATEGORY1"]) {
         return allRampageGifs.count;
-    }
-    else {
-    return rampageGif.count;
+    } else {
+        [self.keyboard.pastelbl setText:[NSString stringWithFormat:@"%lu", (unsigned long)rampageGif.count]];
+        return rampageGif.count;
     }
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    [_keyboard.collectionView registerClass:[NibCell class] forCellWithReuseIdentifier:@"Cell"];
-    
-//    [_keyboard.collectionView registerNib:[UINib nibWithNibName:@"NibCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *identifier = @"Cell";
-    
     NibCell *cell = [self.keyboard.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
     UIImageView * rampageGifImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, cell.frame.size.width, cell.frame.size.height)];
     
-    if([sharedDefaults boolForKey:@"CATEGORY1"])
-    {
+    if ([sharedDefaults boolForKey:@"CATEGORY1"]) {
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        cell.imageView.clipsToBounds = YES;
         
-    [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[allRampageGifs objectAtIndex:indexPath.row]]]];
-    
-    [cell.layer setCornerRadius:0];
-    
-    
-    // Animating Images in Collection Views
-    
-//    if (!self.imageView1) {
-        self.imageView1 = [[FLAnimatedImageView alloc] init];
-        self.imageView1.contentMode = UIViewContentModeScaleAspectFill;
-        self.imageView1.clipsToBounds = YES;
-//    }
-    //[self.view addSubview:self.imageView1];
-    self.imageView1.frame = CGRectMake(0,0, cell.frame.size.width, cell.frame.size.height);
-    
-    NSURL *url1 = [[NSBundle mainBundle] URLForResource:[allRampageGifs objectAtIndex:indexPath.row] withExtension:@"gif"];
-    NSData *data1 = [NSData dataWithContentsOfURL:url1];
-    FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
-    self.imageView1.animatedImage = animatedImage1;
-    
-    rampageGifImage = self.imageView1;
-    
-  //    [rampageGifImage setImage:[UIImage sd_animatedGIFNamed:@"YOURGIF_IMAGE"]];
-    
-  [cell addSubview:rampageGifImage];
-     //[cell addSubview:self.imageView1];
-    
+        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[allRampageGifs objectAtIndex:indexPath.row] withExtension:@"gif"];
+        NSData *data1 = [NSData dataWithContentsOfURL:url1];
+        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
+        cell.imageView.animatedImage = animatedImage1;
+        
+        
     }
     else{
         
         [rampageGifImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]]];
-        
-        [cell.layer setCornerRadius:0];
-        
-        
-        // Animating Images in Collection Views
-        
-        //    if (!self.imageView1) {
-        self.imageView1 = [[FLAnimatedImageView alloc] init];
-        self.imageView1.contentMode = UIViewContentModeScaleAspectFill;
-        self.imageView1.clipsToBounds = YES;
-        //    }
-        //[self.view addSubview:self.imageView1];
-        self.imageView1.frame = CGRectMake(0,0, cell.frame.size.width, cell.frame.size.height);
-        
-        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[rampageGif objectAtIndex:indexPath.row] withExtension:@"gif"];
-        NSData *data1 = [NSData dataWithContentsOfURL:url1];
-        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
-        self.imageView1.animatedImage = animatedImage1;
-        
-        rampageGifImage = self.imageView1;
-        
-        //    [rampageGifImage setImage:[UIImage sd_animatedGIFNamed:@"YOURGIF_IMAGE"]];
-        
-        [cell addSubview:rampageGifImage];
-        //[cell addSubview:self.imageView1];
-        
-//        //        rampageGifImage = self.imageView1;
+//        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+//        cell.imageView.clipsToBounds = YES;
 //        
-//        DFImageView *imageView = (id)[cell viewWithTag:15];
-//        if (!imageView) {
-//            imageView = [[DFImageView alloc] initWithFrame:cell.bounds];
-//            imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//            imageView.tag = 15;
-//            [cell addSubview:imageView];
-//        }
-//        [imageView prepareForReuse];
-//        [imageView setImageWithResource:url1];
-//        imageView = [DFImageView ]
-//        rampageGifImage = imageView;
-//        
-//        [cell addSubview:rampageGifImage];
-//      
-        
+//        NSURL *url1 = [[NSBundle mainBundle] URLForResource:[rampageGif objectAtIndex:indexPath.row] withExtension:@"gif"];
+//        NSData *data1 = [NSData dataWithContentsOfURL:url1];
+//        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
+//        cell.imageView.animatedImage = animatedImage1;
+        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.gif",[rampageGif objectAtIndex:indexPath.row]]];
     }
-    
-    
-    
     
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
     
-    UICollectionViewCell *Cell =[collectionView cellForItemAtIndexPath:indexPath];
+    NibCell *Cell = (NibCell*) [collectionView cellForItemAtIndexPath:indexPath];
+    Cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    Cell.imageView.clipsToBounds = YES;
+
+    NSURL *url2 = [[NSBundle mainBundle] URLForResource:[rampageGif objectAtIndex:indexPath.row] withExtension:@"gif"];
+    NSData *data1 = [NSData dataWithContentsOfURL:url2];
+    FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
+    Cell.imageView.animatedImage = animatedImage1;
+    
     NSURL *url1 = [[NSBundle mainBundle] URLForResource:[rampageGif objectAtIndex:indexPath.row] withExtension:@"gif"];
     
     NSData *data = [NSData dataWithContentsOfURL:url1];
@@ -194,12 +136,12 @@ CGFloat bottomHeight;
     //custom font
     
     UILabel *copiedLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, (Cell.frame.size.height/2)-10, Cell.frame.size.width, 20)];
-   // copiedLabel.text = @"Copied!";
+    // copiedLabel.text = @"Copied!";
     
     self.keyboard.pastelbl.text = @"Paste the GIF in your message!";
     [category_dictionary removeAllObjects];
-        [self.keyboard.pastelbl setHidden:NO];
-        pastelbltimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(pastelblhide:) userInfo:nil repeats:NO];
+    [self.keyboard.pastelbl setHidden:NO];
+    pastelbltimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(pastelblhide:) userInfo:nil repeats:NO];
     
     copiedLabel.numberOfLines = 1;
     copiedLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
@@ -241,6 +183,10 @@ CGFloat bottomHeight;
     facePageControl = [[UIPageControl alloc]init];
     
     self.keyboard = [[[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil] objectAtIndex:0];
+    // [self.keyboard.collectionView registerClass:[NibCell class] forCellWithReuseIdentifier:@"Cell"];
+    
+    [self.keyboard.collectionView registerNib:[UINib nibWithNibName:@"NibCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];
+    
     self.inputView = (UIInputView*)self.keyboard;
     
     [self.keyboard.pastelbl setHidden:YES];
@@ -390,7 +336,7 @@ CGFloat bottomHeight;
         [bottomButton addGestureRecognizer:gesture];
         [self.keyboard.category_scrollview addSubview:bottomButton];
     }
-
+    
     
 }
 
@@ -414,11 +360,11 @@ CGFloat bottomHeight;
     if(category_dictionary.count>0 || btnindex == 0)
     {
         if(category_dictionary.count>0)
-           
+            
             category_itemarray = [category_dictionary keysSortedByValueUsingComparator:^(id first, id second) {
-            
-            return [first compare:second];
-            
+                
+                return [first compare:second];
+                
             }];
         category_itemarray = [category_itemarray sortedArrayUsingSelector:@selector(compare:)];
         float pagefloat = (float) ([category_itemarray count]) / FACE_COUNT_PAGE;
@@ -438,7 +384,7 @@ CGFloat bottomHeight;
             for (int i=0;i<category_itemarray.count;i++) {
                 
                 NSString *filename = [category_itemarray objectAtIndex:i];
-               
+                
                 UIButton *emojiButton = [UIButton buttonWithType:UIButtonTypeCustom];
                 emojiButton.tag = [[category_itemarray objectAtIndex:i] intValue];;
                 emojiButton.userInteractionEnabled = YES;
@@ -458,9 +404,9 @@ CGFloat bottomHeight;
                     currImg = [self image:currImg scaledToWidth:FACE_ICON_SIZE];
                     //                NSLog(@"Image size is now %@",NSStringFromCGSize(currImg.size));
                 }
-              
+                
                 [emojiButton setImage:currImg forState:UIControlStateNormal];
-               [self.keyboard.emoji_scrollview addSubview:emojiButton];
+                [self.keyboard.emoji_scrollview addSubview:emojiButton];
             }
         }
     }
@@ -532,16 +478,16 @@ CGFloat bottomHeight;
             break;
         case 1:
         {
-    
+            
             if([sharedDefaults boolForKey:@"CATEGORY1"])
             {
                 
-            _faceMap = [NSDictionary dictionaryWithContentsOfFile:
-                        [[NSBundle mainBundle] pathForResource:@"All"
-                                                        ofType:@"plist"]];
-            [category_dictionary addEntriesFromDictionary:_faceMap];
-            [bottomButton setImage:[UIImage imageNamed:@"emoji_active.png"] forState:UIControlStateNormal];
-            self.keyboard.emoji_scrollview.hidden = NO;self.keyboard.collectionView.hidden = YES;
+                _faceMap = [NSDictionary dictionaryWithContentsOfFile:
+                            [[NSBundle mainBundle] pathForResource:@"All"
+                                                            ofType:@"plist"]];
+                [category_dictionary addEntriesFromDictionary:_faceMap];
+                [bottomButton setImage:[UIImage imageNamed:@"emoji_active.png"] forState:UIControlStateNormal];
+                self.keyboard.emoji_scrollview.hidden = NO;self.keyboard.collectionView.hidden = YES;
             }
             else
             {
@@ -560,8 +506,8 @@ CGFloat bottomHeight;
             if([sharedDefaults boolForKey:@"CATEGORY1"])
             {
                 _faceMap = [NSDictionary dictionaryWithContentsOfFile:
-                        [[NSBundle mainBundle] pathForResource:@"Rampage"
-                                                        ofType:@"plist"]];
+                            [[NSBundle mainBundle] pathForResource:@"Rampage"
+                                                            ofType:@"plist"]];
                 [category_dictionary addEntriesFromDictionary:_faceMap];
                 self.keyboard.emoji_scrollview.hidden = NO;self.keyboard.collectionView.hidden = YES;
             }
@@ -579,10 +525,10 @@ CGFloat bottomHeight;
         {
             if([sharedDefaults boolForKey:@"CATEGORY2"])
             {
-
+                
                 _faceMap = [NSDictionary dictionaryWithContentsOfFile:
-                        [[NSBundle mainBundle] pathForResource:@"GungHo"
-                                                        ofType:@"plist"]];
+                            [[NSBundle mainBundle] pathForResource:@"GungHo"
+                                                            ofType:@"plist"]];
                 [category_dictionary addEntriesFromDictionary:_faceMap];
                 self.keyboard.emoji_scrollview.hidden = NO;self.keyboard.collectionView.hidden = YES;
             }
@@ -602,8 +548,8 @@ CGFloat bottomHeight;
             if([sharedDefaults boolForKey:@"CATEGORY3"])
             {
                 _faceMap = [NSDictionary dictionaryWithContentsOfFile:
-                        [[NSBundle mainBundle] pathForResource:@"AvantGarde"
-                                                        ofType:@"plist"]];
+                            [[NSBundle mainBundle] pathForResource:@"AvantGarde"
+                                                            ofType:@"plist"]];
                 [category_dictionary addEntriesFromDictionary:_faceMap];
                 self.keyboard.emoji_scrollview.hidden = NO;self.keyboard.collectionView.hidden = YES;
             }
@@ -623,8 +569,8 @@ CGFloat bottomHeight;
             if([sharedDefaults boolForKey:@"CATEGORY4"])
             {
                 _faceMap = [NSDictionary dictionaryWithContentsOfFile:
-                        [[NSBundle mainBundle] pathForResource:@"CrayCray"
-                                                        ofType:@"plist"]];
+                            [[NSBundle mainBundle] pathForResource:@"CrayCray"
+                                                            ofType:@"plist"]];
                 [category_dictionary addEntriesFromDictionary:_faceMap];
                 self.keyboard.emoji_scrollview.hidden = NO;
                 self.keyboard.collectionView.hidden = YES;
@@ -759,7 +705,7 @@ CGFloat bottomHeight;
     float newWidth = oldWidth * scaleFactor;
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(newWidth, newHeight), NO, 0.0f);
-//    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    //    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
     [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -814,7 +760,7 @@ CGFloat bottomHeight;
 }
 
 - (IBAction)gifBtnClkd:(id)sender;{
-
+    
     [self txtnumberkeyboardviewhide];
     self.keyboard.emoji_scrollview.hidden = YES;
     self.keyboard.collectionView.hidden = NO;
@@ -834,10 +780,10 @@ CGFloat bottomHeight;
         {    [self.keyboard.gif_btn setBackgroundImage:[UIImage imageNamed:@"gif_normal.png"] forState:UIControlStateNormal];
             gif_switchflag = false;
         }
-         gif_switchflag = !gif_switchflag;
-           }];
+        gif_switchflag = !gif_switchflag;
+    }];
     
     
-
+    
 }
 @end
