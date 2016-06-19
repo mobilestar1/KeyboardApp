@@ -62,7 +62,7 @@ CGFloat bottomHeight;
 //        FLAnimatedImage *animatedImage1 = [FLAnimatedImage animatedImageWithGIFData:data1];
 //        [gifArray addObject:animatedImage1];
 //    }
-    for (int i = 1;i <= 10;i ++) {
+    for (int i = 0;i < 10;i ++) {
         boolArray[i] = false;
     }
     [_keyboard.collectionView reloadData];
